@@ -1,0 +1,11 @@
+streamlit 
+pandas 
+sys
+os 
+numpy 
+matplotlib
+seaborn 
+scikit-learn
+plotly
+datetime
+mpl_toolkits
