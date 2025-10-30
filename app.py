@@ -176,7 +176,7 @@ st.markdown("""
 # ============================================================================
 # HEADER SECTION
 # ============================================================================
-st.markdown('<h1 class="main-title">📊 Customer Analytics Platform</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title"> Customer Analytics Platform</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Advanced Customer Behavior Segmentation & Analysis Dashboard</p>', unsafe_allow_html=True)
 
 # ============================================================================
@@ -194,7 +194,7 @@ with st.sidebar:
     - **Predictive Modeling**
     """)
     st.markdown("---")
-    st.markdown("### 📚 Quick Guide")
+    st.markdown("###  Quick Guide")
     st.markdown("""
     1. **Upload** your customer data (CSV/TXT)
     2. **Explore** automated insights
@@ -221,27 +221,27 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file, delimiter='\t')
     
     # Display success message
-    st.success(f"✅ Successfully loaded {len(df):,} records with {len(df.columns)} features!")
+    st.success(f" Successfully loaded {len(df):,} records with {len(df.columns)} features!")
     
     st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
     
     # Create tabs with icons
     tabs = st.tabs([
-        "📋 Overview",
-        "🧹 Data Quality",
-        "🔍 Outliers",
-        "👥 Age Analysis",
-        "💰 Income & Spending",
-        "🎓 Education",
-        "📊 Education-Income",
-        "👶 Children Analysis",
-        "🔗 Correlations",
-        "📈 PCA Analysis",
-        "🌐 3D PCA",
-        "🎯 K-Means",
-        "🔧 Custom Clusters",
-        "💳 Income Clusters",
-        "🎪 Spending-Age"
+        " Overview",
+        " Data Quality",
+        " Outliers",
+        " Age Analysis",
+        " Income & Spending",
+        " Education",
+        " Education-Income",
+        " Children Analysis",
+        " Correlations",
+        " PCA Analysis",
+        " 3D PCA",
+        " K-Means",
+        " Custom Clusters",
+        " Income Clusters",
+        " Spending-Age"
     ])
 
     # ========================================================================
@@ -330,10 +330,10 @@ if uploaded_file is not None:
         null_info, df_clean, verify = null_value_analysis(df)
         
         if not null_info.empty:
-            st.warning("⚠️ Null values detected in the dataset")
+            st.warning(" Null values detected in the dataset")
             st.dataframe(null_info, use_container_width=True)
         else:
-            st.success("✅ No null values found! Dataset is clean.")
+            st.success(" No null values found! Dataset is clean.")
         
         col1, col2 = st.columns(2)
         with col1:
@@ -356,7 +356,7 @@ if uploaded_file is not None:
             st.pyplot(fig_before)
         
         with col2:
-            st.markdown("**✨ After Outlier Removal**")
+            st.markdown("** After Outlier Removal**")
             fig_after = plot_outliers(df_no_outliers, numerical_vars, colors, "Data Distribution (After)", "secondary")
             st.pyplot(fig_after)
         
@@ -369,7 +369,7 @@ if uploaded_file is not None:
         with col3:
             st.metric("Final Records", f"{verify_outliers['records_after']:,}")
         
-        st.success("✅ Outlier removal process completed successfully!")
+        st.success(" Outlier removal process completed successfully!")
 
     # ========================================================================
     # TAB 3-14: ANALYSIS TABS
@@ -377,29 +377,29 @@ if uploaded_file is not None:
     with tabs[3]:
         st.markdown('<div class="section-header">👥 Age Distribution Analysis</div>', unsafe_allow_html=True)
         analyze_age_distribution(df_clean)
-        st.success("✅ Age distribution analysis complete")
+        st.success(" Age distribution analysis complete")
 
     with tabs[4]:
-        st.markdown('<div class="section-header">💰 Income & Total Spending Analysis</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Income & Total Spending Analysis</div>', unsafe_allow_html=True)
         analyze_income_spending(df_clean, set_vintage_theme)
-        st.success("✅ Income & spending analysis complete")
+        st.success(" Income & spending analysis complete")
 
     with tabs[5]:
-        st.markdown('<div class="section-header">🎓 Education Distribution Analysis</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Education Distribution Analysis</div>', unsafe_allow_html=True)
         analyze_education_distribution(df_clean, set_vintage_theme)
-        st.success("✅ Education analysis complete")
+        st.success(" Education analysis complete")
 
     with tabs[6]:
-        st.markdown('<div class="section-header">📊 Education-Income-Spending Analysis</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Education-Income-Spending Analysis</div>', unsafe_allow_html=True)
         analyze_education_income_spending(df_clean, set_vintage_theme)
 
     with tabs[7]:
-        st.markdown('<div class="section-header">👶 Children Distribution Analysis</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Children Distribution Analysis</div>', unsafe_allow_html=True)
         vintage_colors = set_vintage_theme()
         plt, children_stats = analyze_children_distribution(df_clean, vintage_colors)
         st.pyplot(plt)
         st.text(children_stats)
-        st.success("✅ Children analysis complete")
+        st.success(" Children analysis complete")
 
     with tabs[8]:
         st.markdown('<div class="section-header">🔗 Correlation Analysis</div>', unsafe_allow_html=True)
@@ -410,14 +410,14 @@ if uploaded_file is not None:
         
         col1, col2 = st.columns(2)
         with col1:
-            st.markdown("**💚 Strong Positive Correlations (r > 0.5)**")
+            st.markdown("** Strong Positive Correlations (r > 0.5)**")
             st.dataframe(df_pos, use_container_width=True)
         
         with col2:
-            st.markdown("**💔 Strong Negative Correlations (r < -0.3)**")
+            st.markdown("** Strong Negative Correlations (r < -0.3)**")
             st.dataframe(df_neg, use_container_width=True)
         
-        st.markdown("**💰 Income Relationships**")
+        st.markdown("** Income Relationships**")
         st.dataframe(df_income.head(10), use_container_width=True)
         
         st.markdown("**🎯 Highly Correlated Feature Clusters (|r| > 0.6)**")
@@ -426,11 +426,11 @@ if uploaded_file is not None:
         else:
             st.info("No highly correlated feature pairs found")
         
-        st.markdown("**💡 Key Insights**")
+        st.markdown("** Key Insights**")
         for point in insights:
             st.markdown(f"- {point}")
         
-        st.success("✅ Correlation analysis complete")
+        st.success(" Correlation analysis complete")
 
     with tabs[9]:
         st.markdown('<div class="section-header">📈 Principal Component Analysis</div>', unsafe_allow_html=True)
